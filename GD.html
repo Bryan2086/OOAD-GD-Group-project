@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Game requirements</h1>
+<!--<ul>
+  <li>Game requirements
+   <ul>
+   <li>The player can log in</li>
+   <li>The player can find pokemon</li>
+   <li>The player can battle pokemon</li>
+   <li>The player can run from battle</li>
+   <li></li>
+   </ul></li> -->
+   
+   <table style="width:100%">
+  <tr>
+    <td>ID</td>
+    <td>Requirement</td>		
+    <td>Priority</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>The player should be able to move around in the game world</td>		
+    <td>H</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>The player should be able to log in to start the game.</td>		
+    <td>L</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>The player should be able to find pokemon in the game world.</td>		
+    <td>M</td>
+  </tr>
+   <tr>
+    <td>4</td>
+    <td>The player should be able to fight pokemon once they find them in the game world.</td>		
+    <td>H</td>
+  </tr>
+   <tr>
+    <td>5</td>
+    <td>The player should be able to retreat from a battle if they choose to.</td>		
+    <td>L</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>The player should be able to buy items from a shop.</td>		
+    <td>L</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>The player should be able to sell items at a shop.</td>		
+    <td>L</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>The player should be able to use items</td>		
+    <td>M</td>
+  </tr>
+</table>
+  
+</ul>
+<hr>
+<h2> Brief <br> Use Case 1.1</h2>
+<h3> Log in </h3>
+<p>The user enters their username and password to start the game.</p>
+<br>
+
+<h2> Casual <br> Use Case 1.2</h2>
+<h3> Find pokemon </h3>
+<p>The player uses the W, A, S, D or arrow keys to move the character around the "game world".<br>
+   While the player is moving around the game world they have a chance to find a pokemon in certain sections of the map where there is tall grass.<br>
+   When a pokemon is found by the player, a fight initiates. <br> <br>
+   If the player's pokemon is dead then they are forced to retreat from battle if a pokemon is found.
+   
+</p>
+<br>
+
+<h2> Fully Dressed <br> Use Case 1.3</h2>
+<hr>
+<h3> Battle </h3>
+<h3>Scenario 1 (Player attacks enemy pokemon)</h3>
+<li><b>Pre-conditions:</b> The user must find a Pokémon in the tall grass.</li> 
+<ol type="1">
+          
+  <li>The player and the Pokémon gets teleported to another location where the battle takes place.</li>
+  <li>A small GUI with the player's options appears.</li>
+  <li>The player chooses to attack the enemy pokemon.</li>
+  <li>The enemy pokemon takes a random amount of damage.</li>
+  <li>The player must now wait for the enemy pokemon to attack before they can attack again.</li>
+  <li>The enemy pokemon attacks.</li>
+  <li>The player's pokemon takes a random amount of damage.</li>
+  <li>This process continues until one pokemon's health points reach zero.</li>
+  <li>The pokemon with zero health points dies.</li>
+  <li>The dead pokemon is removed from the scene.</li>
+  <li>A screen with the name of the victor appears.</li>
+</ol>
+<hr>
+<h3>Scenario 2 (Player uses a health item)</h3>
+<li><b>Pre-conditions:</b> (i) The user must find a Pokémon in the tall grass. (ii) The user must have a health item</li> 
+<ol type="1">
+          
+  <li>""</li>
+  <li>""</li>
+  <li>""</li>
+  <li>""</li>
+  <li>""</li>
+  <li>""</li>
+  <li>""</li>
+  <li>The player chooses to use a health item.</li>
+  <li>The item restores the player's pokemons health.</li>
+  <li>The item is removed from the player's inventory.</li> 
+</ol>
+<hr>
+
+<h3>Scenario 3 (Player chooses to retreat)</h3>
+<li><b>Pre-conditions:</b> The user must find a Pokémon in the tall grass.</li> 
+<ol type="1">
+          
+  <li>""</li>
+  <li>""</li>
+  <li>""</li>
+  <li>""</li>
+  <li>""</li>
+  <li>""</li>
+  <li>""</li>
+  <li>The player chooses to retreat.</li>
+  <li>A screen appears notifying you of your defeat.</li>  
+</ol>
+<hr>
+
+<h4>post-condition</h4>
+<li>The player is teleported back to the original scene.</li>
+
+</body>
+</html>
