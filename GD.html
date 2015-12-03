@@ -36,7 +36,7 @@
   </tr>
    <tr>
     <td>4</td>
-    <td>Pokemon battle</td>		
+    <td>Player battles pokemon in tall grass</td>		
     <td>H</td>
   </tr>
   <tr>
@@ -70,19 +70,23 @@
 
 <h2> Fully Dressed <br> Use Case 1.3</h2>
 <hr>
-<h3> Pokemon Battle </h3>
+<h3>Title: player battles pokemon in tall grass </h3>
 <h3>Actor : Player</h3>
-<li><b>Pre-Condition:</b>The player must be in the tall grass.</li> 
+<h4>Pre-Condition</h4>
+<li>The player must be in the tall grass.</li> 
+<h4>Post-Condition</h4>
+<li>The player is teleported back to the original scene.</li>
+
+<h4>Main Success Scenario</h4>
 <ol type="1">
           
   <li>The player takes a step and encounters a pokemon.</li>
   <li>The player and pokemon are teleported to another scene where turn based combat takes place.</li>
   <li>The system displays a gui with the player's options.</li>
-  <li>The player chooses an option.</li>
-  <li>The enemy's turn begins.</li>
-  <li>The enemy pokemon attacks.</li>
+  <li>The player chooses the attack option and the enemy pokemon takes damage.</li>
+  <li>The enemy's turn begins and the enemy pokemon attacks</li>
   <li>The player's pokemon takes damage.</li>
-  <li>Repeat steps 4-7 until one pokemon's hp reaches 0.</li>
+  <li>Repeat steps 4-6 until one pokemon's hp reaches 0.</li>
   <li>A message is displayed declaring the winner.</li>
    <h3>Extensions</h3>   
 	  4a 1. The player chooses to use a health potion.<br>
@@ -90,15 +94,10 @@
 	  4a 3. The health potion is removed from the player's inventory.<br>
 	  <br>
 	  4b 1. The player chooses the retreat option.<br>
-		<br>
-	  4c 1. The player chooses attack.<br>
-	  4c 2. The enemy pokemon takes damage.<br>
 
 	
 </ol>
 <hr>
-<h4>Post-Condition</h4>
-<li>The player is teleported back to the original scene.</li>
 
 </body>
 </html>
