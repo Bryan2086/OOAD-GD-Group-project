@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Pokemon_Health : MonoBehaviour {
 
     public int health;
+    public bool isAlive = true;
 
     public Slider enemy;
 	// Use this for initialization
@@ -18,7 +19,8 @@ public class Pokemon_Health : MonoBehaviour {
 
         enemy.value = health;
 
-        if (health <= 0) { GameObject.FindGameObjectWithTag("pokemon").SendMessage("EndBattle"); }
+        if (health <= 0) { isAlive = false; }
+        if (isAlive == false) { GameObject.FindGameObjectWithTag("pokemon").SendMessage("EndBattle"); }
 
 	}
 
@@ -26,6 +28,11 @@ public class Pokemon_Health : MonoBehaviour {
     public int getHealth() { return health; }
 
     private void TakeDamage(int dmg) { health -= dmg; }
-    private void UsePotion(int heal) {  health += heal; }
+    private void IncreaseHealth(int heal) {  health += heal; }
+
+    public void setAlive()
+    {
+        isAlive = true;
+    }
 
 }
