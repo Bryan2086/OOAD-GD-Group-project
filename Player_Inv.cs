@@ -28,19 +28,24 @@ public class Player_Inv : MonoBehaviour {
 
     private void RemoveItem(string name){
 
-        if (name.Equals("revive"))
-        {
-
-            if (list.Exists(e => e.getName().Equals("revive")))
+            if (list.Exists(e => e.getName().Equals(name)))
             {
                 Debug.Log("REV POT");
-                list.RemoveAll(e => e.getName().Equals("revive"));
+                list.RemoveAll(e => e.getName().Equals(name));
+
+            if (name.Equals("revive"))
+            {
                 GameObject.FindGameObjectWithTag("pokemon").SendMessage("UsePotion", rev.getHealAmount());
             }
-        }
+            else {
+                GameObject.FindGameObjectWithTag("pokemon").SendMessage("UsePotion", hp.getHealAmount());
+            }
+                
+            }
+     //   }
 
-        if (name.Equals("potion"))
-        {
+     /*   if (name.Equals("potion"))
+       {
 
             if (list.Exists(e => e.getName().Equals("potion")))
             {
@@ -48,7 +53,7 @@ public class Player_Inv : MonoBehaviour {
                 list.RemoveAll(e => e.getName().Equals("potion"));
                 GameObject.FindGameObjectWithTag("pokemon").SendMessage("UsePotion", hp.getHealAmount());
             }
-        }
+        }*/
 
       
     }
