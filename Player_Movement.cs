@@ -24,11 +24,11 @@ public class Player_Movement : MonoBehaviour {
       
     }
 
-    public void MoveForward() { transform.Translate(0, 0, speed * Time.deltaTime); }
+    private void MoveForward() { transform.Translate(0, 0, speed * Time.deltaTime); }
 
-    public void MoveBackward() { transform.Translate(0, 0, -speed * Time.deltaTime); }
+    private void MoveBackward() { transform.Translate(0, 0, -speed * Time.deltaTime); }
 
-    public void MoveLeft() { transform.Translate(-speed * Time.deltaTime, 0, 0); }
+    private void MoveLeft() { transform.Translate(-speed * Time.deltaTime, 0, 0); }
 
-    public void MoveRight() { transform.Translate(speed * Time.deltaTime, 0, 0); }
+    private void MoveRight() { transform.Translate(speed * Time.deltaTime, 0, 0); }
 }

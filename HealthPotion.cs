@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HealthPotion : MonoBehaviour {
+public class HealthPotion : Items {
 
-    public int healAmount;
 	// Use this for initialization
 	void Start () {
-        healAmount = 40;
+        
     }
 	
 	// Update is called once per frame
@@ -14,5 +13,7 @@ public class HealthPotion : MonoBehaviour {
 	
 	}
 
-    public void usePotion() { Debug.Log("hp"); GameObject.FindGameObjectWithTag("pokemon").SendMessage("UsePotion", healAmount); }
+    public HealthPotion(int healAmount, string name) : base (healAmount, name) { }
+
+    //private void usePotion() { GameObject.FindGameObjectWithTag("pokemon").SendMessage("UsePotion", this.getHealAmount()); }
 }

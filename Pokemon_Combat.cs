@@ -14,9 +14,12 @@ public class Pokemon_Combat : MonoBehaviour {
     public float botTimer = 0;
     public bool yourTurn;
 
-    public Button attack, heal, retreat;
+    public Button attack, heal, retreat, useItem, revive;
+    public 
     // Use this for initialization
     void Start () {
+
+        revive.gameObject.active = false;
         pokemon = GameObject.FindGameObjectWithTag("pokemon");
 
         if (this.gameObject.tag.Equals("pokemon"))
@@ -27,6 +30,9 @@ public class Pokemon_Combat : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        
+
         if (this.gameObject.tag.Equals("enemy_pokemon") && yourTurn == true)
         {
             botTimer += Time.deltaTime;
@@ -34,7 +40,7 @@ public class Pokemon_Combat : MonoBehaviour {
         }
             
 	}
-    
+
     public void Attack(int dmg) {
         if (yourTurn == true && this.GetComponent<Pokemon_Health>().getHealth() > 0)
         { enemyPokemon.SendMessage("TakeDamage", dmg);
@@ -44,11 +50,17 @@ public class Pokemon_Combat : MonoBehaviour {
         }
         
     }
-    public void UsePotion(int heal)
+
+        
+ 
+
+    public void UsePotion(string name)
     {
         if (yourTurn == true)
         {
-            player.SendMessage("RemoveItem");
+            text.text = "";
+            revive.gameObject.active = false;
+            player.SendMessage("RemoveItem", name);
             yourTurn = false;
             enemyPokemon.GetComponent<Pokemon_Combat>().setYourTurn();
             botTimer = 0;
@@ -65,18 +77,24 @@ public class Pokemon_Combat : MonoBehaviour {
     }
 
 
-    public void EndBattle() {
+    private void EndBattle() {
        int pokemonHealth = pokemon.GetComponent<Pokemon_Health>().getHealth();
        int enemyPokemonHealth = enemyPokemon.GetComponent<Pokemon_Health>().getHealth();
 
         if (pokemonHealth > enemyPokemonHealth && this.gameObject.tag.Equals("pokemon")) { text.text = "You Won ! ! !"; }
-        else { text.text = "You Lost . . ."; }
+
+        else if (player.GetComponent<Player_Inv>().HaveRevive()) {
+            text.text = "USE A REVIVE POTION";
+            revive.gameObject.active = true;
+        }
+
+        else{ text.text = "You Lost . . ."; }
 
         timer += Time.deltaTime;
         if (timer > 3) { Application.LoadLevel(0); }
    }
 
-    public void setYourTurn()
+    private void setYourTurn()
     {
         yourTurn = true;
     }

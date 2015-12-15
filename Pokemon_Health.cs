@@ -25,7 +25,7 @@ public class Pokemon_Health : MonoBehaviour {
     public void setHealth(int hp) { health = hp; }
     public int getHealth() { return health; }
 
-    public void TakeDamage(int dmg) { Debug.Log("dmg");health -= dmg; }
-    public void UsePotion(int heal) {  health += heal; }
+    private void TakeDamage(int dmg) { health -= dmg; }
+    private void UsePotion(int heal) {  health += heal; }
 
 }

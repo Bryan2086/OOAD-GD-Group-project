@@ -5,29 +5,54 @@ using System.Collections.Specialized;
 
 public class Player_Inv : MonoBehaviour {
 
-    List<HealthPotion> list = new List<HealthPotion>();
+    public List<Items> list = new List<Items>();
 
-    HealthPotion hp = new HealthPotion();
+    HealthPotion hp = new HealthPotion(30, "potion");
+    RevivePotion rev = new RevivePotion(100, "revive");
 
 	// Use this for initialization
 	void Start () {
+        list.Add(rev);
         list.Add(hp);
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+    public bool HaveRevive() {
+        if (list.Contains(rev)) { return true; }
+        else { return false; }
+    }
 
-    public void RemoveItem(){
+    private void RemoveItem(string name){
 
-        if (list.Contains(hp)) {
-            list.Remove(hp);
-            Debug.Log("inv");
-            GameObject.FindGameObjectWithTag("Player").SendMessage("usePotion");
+        if (name.Equals("revive"))
+        {
+
+            if (list.Exists(e => e.getName().Equals("revive")))
+            {
+                Debug.Log("REV POT");
+                list.RemoveAll(e => e.getName().Equals("revive"));
+                GameObject.FindGameObjectWithTag("pokemon").SendMessage("UsePotion", rev.getHealAmount());
+            }
         }
+
+        if (name.Equals("potion"))
+        {
+
+            if (list.Exists(e => e.getName().Equals("potion")))
+            {
+                Debug.Log("HP POT");
+                list.RemoveAll(e => e.getName().Equals("potion"));
+                GameObject.FindGameObjectWithTag("pokemon").SendMessage("UsePotion", hp.getHealAmount());
+            }
+        }
+
+      
     }
 
 
-    public void AddItem() { list.Add(hp);  }
+    private void AddItem() { list.Add(hp);  }
 }
