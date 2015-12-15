@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RevivePotion : Items {
 
-    public bool isAlive;
+   // public bool isAlive;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,4 +15,9 @@ public class RevivePotion : Items {
 	}
 
     public RevivePotion(int healAmount, string name) : base (healAmount, name) { }
+
+    public void RevivePokemon()
+    {
+        GameObject.FindGameObjectWithTag("pokemon").GetComponent<Pokemon_Health>().setAlive();
+    }
 }
